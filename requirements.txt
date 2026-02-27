@@ -1,0 +1,5 @@
+google-adk
+google-cloud-storage
+fastapi
+uvicorn
+python-dotenv
