@@ -3,7 +3,7 @@ from tools import save_markdown_report
 
 inspector = LlmAgent(
     name="infrastructure_inspector",
-    model="gemini-3-flash",
+    model="ggemini-3-flash-preview",
     tools=[save_markdown_report],
     instruction=(
         "You are an expert structural inspector assessing physical infrastructure. "

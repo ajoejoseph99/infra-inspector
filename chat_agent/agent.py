@@ -3,7 +3,7 @@ from tools import list_inspection_reports, read_inspection_report
 
 root_agent = LlmAgent(
     name="infrastructure_query_assistant",
-    model="gemini-2.5-flash",
+    model="gemini-3-flash-preview",
     tools=[list_inspection_reports, read_inspection_report],
     instruction=(
         "You are an intelligent assistant for a facilities management team. "
