@@ -14,11 +14,16 @@ def save_markdown_report(filename: str, report_content: str) -> str:
     try:
         bucket = storage_client.bucket(OUTPUT_BUCKET_NAME)
         
-        # Ensure a clean .md extension
-        clean_name = filename.split('.')[0] + "_inspection.md"
-        blob = bucket.blob(clean_name)
+        # Get the base name without any extension
+        base_name = filename.split('.')[0]
         
-        # Upload the markdown content
+        # Only add the suffix if it isn't already there
+        if not base_name.endswith("_inspection"):
+            clean_name = f"{base_name}_inspection.md"
+        else:
+            clean_name = f"{base_name}.md"
+            
+        blob = bucket.blob(clean_name)
         blob.upload_from_string(report_content, content_type="text/markdown")
         
         return f"Success: Report saved as {clean_name} in {OUTPUT_BUCKET_NAME}."
